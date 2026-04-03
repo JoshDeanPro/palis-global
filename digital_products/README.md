@@ -1,21 +1,25 @@
-# Palis Global — Digital Products
+# Palis Global — Digital Products (Styling Template)
 
-All products are printable HTML files optimized for A4/Letter paper. 
+This directory contains the premium design system and styling for all Palis Global digital offerings. The actual proprietary content has been removed from this public repository.
 
-## Product Catalog
+## Styling Template
+- **product_template.html**: A clean, monochromatic HTML template containing the complete CSS and structural layout for digital products (journals, guides, card decks). It is optimized for on-screen viewing and professional A4/Letter printing.
 
-| Folder | Product | Price | Type |
-|--------|---------|-------|------|
-| `lovers-oracle-guide/` | The Lovers' Oracle Guide | $18 | PDF Guide |
-| `shadow-work-journal/` | Shadow Work Journal | $14 | Printable Journal |
-| `full-moon-ritual-deck/` | Full Moon Ritual Deck | $22 | Printable Cards |
-| `astro-tarot-blueprint/` | Astro-Tarot Blueprint | $38 | PDF Reference |
-| `moon-cycle-tracker/` | Moon Cycle Tracker | $12 | Printable Tracker |
-| `daily-tarot-journal/` | 90-Day Tarot Pull Journal | $16 | Printable Journal |
-| `palis-oracle-deck/` | Palis Oracle Deck (36 cards) | $28 | Printable Card Deck |
-| `manifestation-workbook/` | Manifestation Workbook | $19 | PDF Workbook |
-| `new-moon-intention-kit/` | New Moon Intention Kit | $14 | Printable Kit |
+## Product References
+The platform's `Merch` and `Portal` sections are built to handle digital inventory with the following IDs and metadata structures:
 
-## Bundles
-- **The Seeker Bundle** (Oracle Guide + Shadow Journal + Moon Tracker + Daily Journal) = $44 (save $20)
-- **The Inner Circle Library** (all 9 products) = $88 (save $73)
+| Product | ID | Category |
+|---------|----|----------|
+| Shadow Work Journal | 1 | journals |
+| 90-Day Tarot Pull Journal | 2 | journals |
+| Moon Cycle Tracker | 3 | trackers |
+| The Lovers' Oracle Guide | 4 | guides |
+| Astro-Tarot Blueprint | 5 | guides |
+| Palis Oracle Deck | 6 | decks |
+| Full Moon Ritual Deck | 7 | decks |
+| Manifestation Workbook | 8 | workbooks |
+| New Moon Intention Kit | 9 | workbooks |
+
+---
+© 2026 Palis Global. Proprietary content removed. 
+Template styling preserved for architecture reference.
