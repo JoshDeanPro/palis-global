@@ -1,0 +1,39 @@
+:root {
+  /* Color Palette */
+  --color-obsidian: #0a0a0a;
+  --color-charcoal: #151515;
+  --color-stone: #4a4a4a;
+  --color-earth: #2d241e;
+  --color-bronze: #8c7851;
+  --color-ochre: #c9b28a;
+  --color-ivory: #f3ece0;
+  --color-indigo: #3d4251;
+  --color-gold: #e6c200;
+  --color-plum: #433540;
+
+  /* Semantic Colors */
+  --bg-primary: var(--color-obsidian);
+  --bg-secondary: var(--color-charcoal);
+  --text-primary: var(--color-ivory);
+  --text-secondary: rgba(243, 236, 224, 0.7);
+  --accent: var(--color-ochre);
+  --border-subtle: rgba(201, 178, 138, 0.15);
+  --border-strong: rgba(140, 120, 81, 0.3);
+
+  /* Typography */
+  --font-serif: "Source Serif 4", serif;
+  --font-sans: "Source Sans 3", sans-serif;
+
+  /* Spacing */
+  --space-unit: 1rem;
+  --space-xs: calc(var(--space-unit) * 0.25);
+  --space-sm: calc(var(--space-unit) * 0.5);
+  --space-md: var(--space-unit);
+  --space-lg: calc(var(--space-unit) * 2);
+  --space-xl: calc(var(--space-unit) * 4);
+
+  /* Shadows & Effects */
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-strong: 0 12px 32px rgba(0, 0, 0, 0.8);
+  --transition-gentle: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}

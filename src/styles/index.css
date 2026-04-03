@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply min-h-screen font-sans antialiased m-0 p-0;
+    font-size: clamp(17px, 1.15vw, 19px);
+    line-height: 1.82;
+    color: #f8f8f8;
+    background-color: #050505;
+    background:
+      radial-gradient(circle at top, rgba(150, 150, 150, 0.15), transparent 45%),
+      radial-gradient(circle at bottom left, rgba(200, 200, 200, 0.12), transparent 50%),
+      linear-gradient(180deg, #050505 0%, #040404 48%, #060606 100%);
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(230, 230, 230, 0.02), transparent 18%, transparent 78%, rgba(230, 230, 230, 0.025));
+    z-index: -2;
+  }
+  body::after {
+    content: ''; position: fixed; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23noise)' opacity='0.14'/%3E%3C/svg%3E");
+    opacity: 0.1; mix-blend-mode: soft-light; z-index: -1;
+  }
+  a { color: inherit; text-decoration: none; }
+  button, input, textarea, select { font: inherit; }
+}
+
+@layer components {
+  /* ─── Global Button Classes (Around the site issue) ─── */
+  .btn {
+    @apply inline-flex items-center justify-center transition focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-11 px-6 text-[0.75rem] uppercase tracking-[0.15em] border rounded-[1px];
+  }
+  .btn-primary { @apply bg-white text-black hover:bg-white/90 border-white shadow-[0_4px_12px_rgba(255,255,255,0.1)]; }
+  .btn-secondary { @apply bg-white/10 text-white hover:bg-white/20 border-white/20; }
+  .btn-outline { @apply bg-transparent border-white/30 text-white hover:bg-white/10; }
+  .btn-lg { @apply h-14 px-10 text-[0.8rem] tracking-[0.2em]; }
+
+  /* ── Panels / surfaces ── */
+  .surface-panel {
+    @apply border;
+    border-radius: 2px;
+    border-color: rgba(200, 200, 200, 0.15);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(200, 200, 200, 0.05);
+  }
+  .surface-panel-strong {
+    @apply border;
+    border-radius: 2px;
+    border-color: rgba(200, 200, 200, 0.25);
+    background: rgba(16, 16, 16, 0.92);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(200, 200, 200, 0.08);
+  }
+  .folio-panel {
+    @apply border;
+    border-radius: 1px;
+    border-color: rgba(150, 150, 150, 0.1);
+    background: rgba(8, 8, 8, 0.6);
+  }
+
+  /* ── Typography ── */
+  .section-label {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.66rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: rgba(200, 200, 200, 0.8);
+    display: block;
+  }
+  .editorial-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4.5vw, 4.6rem);
+    line-height: 1.08;
+    letter-spacing: 0.04em;
+    color: #f8f8f8;
+    margin-bottom: 1.2rem;
+  }
+  .balanced-copy {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.85;
+    color: rgba(230, 230, 230, 0.75);
+  }
+
+  /* ── Form fields ── */
+  .field-base {
+    @apply w-full border px-4 py-3 text-[1rem] text-white outline-none transition;
+    border-radius: 2px;
+    border-color: rgba(200, 200, 200, 0.1);
+    background: rgba(10, 10, 10, 0.8);
+    font-family: 'EB Garamond', Georgia, serif;
+  }
+  .field-base::placeholder { color: rgba(230, 230, 230, 0.28); }
+  .field-base:focus { border-color: rgba(150, 150, 150, 0.4); }
+
+  /* ── Divider ── */
+  .subtle-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, rgba(150, 150, 150, 0.4), transparent);
+  }
+  .quiet-link {
+    @apply transition cursor-pointer;
+    color: rgba(230, 230, 230, 0.62);
+  }
+  .quiet-link:hover { color: white; }
+}

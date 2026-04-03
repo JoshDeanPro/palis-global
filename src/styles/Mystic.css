@@ -1,0 +1,651 @@
+/* Mystic & Occult Theme Layout */
+
+.mystic-nav {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+}
+
+.mystic-nav__logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+}
+
+.mystic-nav__logo .star {
+  font-size: 0.8rem;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .btn-nav { display: none; }
+  .mystic-nav { justify-content: center; }
+}
+
+/* Floating mystic particles */
+.particles-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--color-accent-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(140, 140, 140, 0.8);
+  opacity: 0;
+  animation: floatParticle 10s infinite linear;
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+.p-0 { left: 10%; animation-delay: 0s; }
+.p-1 { left: 20%; animation-delay: 2s; animation-duration: 12s; }
+.p-2 { left: 30%; animation-delay: 4s; }
+.p-3 { left: 40%; animation-delay: 1s; animation-duration: 8s;}
+.p-4 { left: 50%; animation-delay: 5s; }
+.p-5 { left: 60%; animation-delay: 3s; animation-duration: 15s;}
+.p-6 { left: 70%; animation-delay: 7s; }
+.p-7 { left: 80%; animation-delay: 2.5s; }
+.p-8 { left: 90%; animation-delay: 6s; }
+
+/* Starfield Background */
+.starfield {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(20, 20, 35, 1) 0%, rgba(3, 3, 5, 1) 100%);
+}
+
+.starfield::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 160px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.15;
+  animation: starsTwinkle 4s infinite alternate;
+}
+
+@keyframes starsTwinkle {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.3; }
+}
+
+/* Mystic Thread Scroll Line */
+.mystic-thread-container {
+  position: absolute;
+  top: 100vh;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(140, 140, 140, 0.1);
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mystic-thread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--thread-height, 0%);
+  background: var(--color-accent-gold);
+  box-shadow: 0 0 10px var(--color-accent-gold);
+}
+
+/* Hero */
+.hero-mystic {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 40px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.hero-mystic__bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moon-orb {
+  width: 80vh;
+  height: 80vh;
+  background: radial-gradient(circle, var(--color-accent-gold) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.08;
+  filter: blur(80px);
+  transform: translateY(calc(var(--scroll, 0px) * -0.2));
+  animation: auraPulse 20s infinite alternate ease-in-out;
+}
+
+@keyframes auraPulse {
+  0% { transform: translateY(calc(var(--scroll, 0px) * -0.2)) scale(1); opacity: 0.06; }
+  100% { transform: translateY(calc(var(--scroll, 0px) * -0.25)) scale(1.15); opacity: 0.12; }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: 
+    url('https://www.transparenttextures.com/patterns/carbon-fibre.png'),
+    radial-gradient(circle at 50% 50%, transparent 0%, rgba(3, 3, 5, 0.6) 100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.hero-mystic__content {
+  max-width: 800px;
+  z-index: 10;
+}
+
+.hero-mystic__eyebrow {
+  color: var(--color-accent-gold);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-mystic__title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-mystic__desc {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Tarot Section & Flip Mechanics */
+.tarot-section {
+  padding: 100px 20px;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.tarot-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.tarot-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-accent-gold);
+  margin-bottom: 10px;
+}
+
+.tarot-header p {
+  color: var(--color-text-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.tarot-spread {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  perspective: 1500px;
+  margin-top: 40px;
+}
+
+.tarot-card {
+  width: 320px;
+  height: 520px;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.6s;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tarot-card__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tarot-card.flipped .tarot-card__inner {
+  transform: rotateY(180deg);
+}
+
+/* Spread fan effect */
+.left-card { transform: rotate(-8deg) translateY(30px); z-index: 1; }
+.center-card { transform: rotate(0) translateY(-10px); z-index: 2; }
+.right-card { transform: rotate(8deg) translateY(30px); z-index: 1; }
+
+.card-illustration {
+  margin: auto 0;
+  width: 120px;
+  height: 120px;
+  color: var(--color-accent-gold);
+  opacity: 0.8;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.tarot-card:hover .card-illustration {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.esoteric-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tarot-card__front p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: auto;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.card-hint {
+  font-size: 0.7rem;
+  color: var(--color-accent-gold-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 15px;
+}
+
+.secret-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #fff;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.sacred-geometry {
+  width: 100px;
+  height: 100px;
+  color: var(--color-accent-gold);
+  animation: slowSpin 20s infinite linear;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile Tarot */
+@media (max-width: 1024px) {
+  .tarot-spread {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .left-card, .center-card, .right-card {
+    transform: none;
+  }
+  .tarot-card:hover {
+    transform: translateY(-10px) !important;
+  }
+  .mystic-thread-container { display: none; }
+}
+
+/* Ritual Section */
+.ritual-explanation {
+  background-color: transparent;
+  padding: 120px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+:root {
+  --color-bg: #030305;
+  --color-text: #f0e6d2;
+  --color-text-muted: rgba(240, 230, 210, 0.65);
+  --color-accent-gold: #cdcdcd;
+  --color-accent-gold-dim: rgba(140, 140, 140, 0.25);
+  --color-blood: #666666;
+  --color-blood-glow: rgba(100, 100, 100, 0.15);
+  --color-celestial: #d09dff;
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  
+  --shadow-premium: 0 20px 50px rgba(0,0,0,0.8);
+  --border-premium: 1px solid rgba(140, 140, 140, 0.15);
+}
+
+.ritual-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(3, 3, 5, 0.8);
+  padding: 60px;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent-gold-dim);
+}
+
+.mb-60 { margin-bottom: 60px; }
+.text-center { text-align: center; }
+
+.ritual-container h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-accent-gold);
+}
+
+.ritual-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.ritual-step {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.step-marker {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-blood);
+  font-style: italic;
+  line-height: 1;
+}
+
+.step-content h4 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.step-content p {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grimoire Pricing */
+.grimoire-pricing {
+  padding: 100px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.pricing-runes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn-magic {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-accent-gold-dim);
+  padding: 14px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-magic::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(140, 140, 140, 0.15), transparent);
+  transition: 0.5s;
+}
+
+.btn-magic:hover::before {
+  left: 100%;
+}
+
+.btn-magic:hover {
+  border-color: var(--color-accent-gold);
+  box-shadow: 0 0 25px rgba(140, 140, 140, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-solid {
+  background: var(--color-accent-gold);
+  color: var(--color-bg);
+  border-color: var(--color-accent-gold);
+  font-weight: 600;
+}
+
+.btn-solid:hover {
+  background: transparent;
+  color: var(--color-accent-gold);
+}
+
+.rune-card {
+  border: 1px solid var(--color-accent-gold-dim);
+  background: rgba(10, 10, 12, 0.6);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.rune-card:hover {
+  transform: translateY(-5px);
+  background: rgba(10, 10, 12, 0.9);
+}
+
+.featured-rune {
+  border-color: var(--color-accent-gold);
+}
+
+.featured-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  box-shadow: inset 0 0 30px rgba(140, 140, 140, 0.1);
+  pointer-events: none;
+}
+
+.rune-top {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 1px dashed var(--color-accent-gold-dim);
+  padding-bottom: 30px;
+}
+
+.rune-top h4 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.rune-price {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--color-accent-gold);
+}
+
+.rune-list {
+  list-style: none;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.rune-list li {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.rune-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-gold);
+  font-size: 0.8rem;
+}
+
+/* Esoteric FAQ */
+.esoteric-faq {
+  padding: 100px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.faq-masonry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.faq-scroll {
+  border-left: 2px solid var(--color-blood);
+  padding-left: 20px;
+}
+
+.faq-scroll h4 {
+  font-size: 1.3rem;
+  color: var(--color-accent-gold);
+  margin-bottom: 15px;
+}
+
+.faq-scroll p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .faq-masonry { grid-template-columns: 1fr; }
+  .ritual-container { padding: 40px 20px; }
+  .ritual-step { flex-direction: column; gap: 15px; }
+}
+
+.block-center {
+  display: flex;
+  margin: 0 auto;
+}
+
+.btn-small {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.mb-20 { margin-bottom: 20px; }
+
+/* Footer */
+.mystic-footer {
+  text-align: center;
+  padding: 100px 20px 60px;
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(180deg, transparent 0%, #050508 100%);
+  font-family: var(--font-serif);
+}
+
+/* Premium Utility Classes */
+.premium-border {
+  border: var(--border-premium);
+  position: relative;
+}
+
+.premium-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--color-accent-gold-dim);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-text), var(--color-accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-spacing {
+  padding: 120px 20px;
+}
+
+.glass {
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: var(--border-premium);
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 80px 20px;
+  }
+}
+
+.mystic-footer p {
+  color: var(--color-accent-gold);
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+

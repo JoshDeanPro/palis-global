@@ -1,0 +1,26 @@
+.magic-cursor-main {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  background: rgba(161, 122, 61, 0.82);
+  border: 1px solid rgba(255, 252, 244, 0.72);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 18px rgba(245, 220, 167, 0.34);
+  transition: width 0.2s ease, height 0.2s ease;
+  will-change: left, top;
+}
+
+.magic-cursor-trail {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  background: rgba(82, 101, 76, 0.42);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  box-shadow: 0 0 10px rgba(161, 122, 61, 0.12);
+  will-change: left, top;
+}
